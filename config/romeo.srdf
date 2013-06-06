@@ -18,6 +18,7 @@
         <link name="RShoulderYawLink" />
         <link name="RElbowRollLink" />
         <link name="RElbowYawLink" />
+        <link name="RWristRollLink" />
     </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="right_eef" parent_link="RWristRollLink" group="right_hand" />
