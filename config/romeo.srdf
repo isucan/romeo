@@ -10,209 +10,229 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="right_hand">
+        <link name="RWristRollLink" />
+        <link name="RWristYawLink" />
+    </group>
+    <group name="right_arm">
+        <joint name="RShoulderPitch" />
+        <joint name="RShoulderYaw" />
+        <joint name="RElbowRoll" />
+        <joint name="RElbowYaw" />
+        <joint name="RWristRoll" />
         <joint name="RWristYaw" />
         <joint name="RWristPitch" />
     </group>
-    <group name="right_arm">
-        <link name="RShoulderPitchLink" />
-        <link name="RShoulderYawLink" />
-        <link name="RElbowRollLink" />
-        <link name="RElbowYawLink" />
-    </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="right_eef" parent_link="RWristRollLink" group="right_hand" />
+    <end_effector name="right_eef" parent_link="r_wrist" group="right_hand" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="planar" parent_frame="odom_combined" child_link="base_link" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="HeadRollLink" link2="LElbowYawLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="LHipPitchLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="LKneePitchLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="LShoulderYawLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="LWristRollLink" reason="Default" />
+    <disable_collisions link1="HeadRollLink" link2="LElbowYawLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="LHipPitchLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="LKneePitchLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="LShoulderYawLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="LWristRollLink" reason="Never" />
     <disable_collisions link1="HeadRollLink" link2="LWristYawLink" reason="Never" />
     <disable_collisions link1="HeadRollLink" link2="NeckPitchLink" reason="Adjacent" />
-    <disable_collisions link1="HeadRollLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="RKneePitchLink" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="RShoulderYawLink" reason="Always" />
+    <disable_collisions link1="HeadRollLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="RWristRollLink" reason="Default" />
     <disable_collisions link1="HeadRollLink" link2="RWristYawLink" reason="Never" />
-    <disable_collisions link1="HeadRollLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="HeadRollLink" link2="torso" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="LHipPitchLink" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="LKneePitchLink" reason="Always" />
+    <disable_collisions link1="HeadRollLink" link2="body" reason="Default" />
+    <disable_collisions link1="HeadRollLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="l_toe" reason="Default" />
+    <disable_collisions link1="HeadRollLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="HeadRollLink" link2="torso" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="LHipPitchLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="LKneePitchLink" reason="Never" />
     <disable_collisions link1="LElbowYawLink" link2="LShoulderYawLink" reason="Adjacent" />
     <disable_collisions link1="LElbowYawLink" link2="LWristRollLink" reason="Adjacent" />
     <disable_collisions link1="LElbowYawLink" link2="LWristYawLink" reason="Never" />
-    <disable_collisions link1="LElbowYawLink" link2="NeckPitchLink" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="RKneePitchLink" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="RShoulderYawLink" reason="Always" />
+    <disable_collisions link1="LElbowYawLink" link2="NeckPitchLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="RWristRollLink" reason="Default" />
     <disable_collisions link1="LElbowYawLink" link2="RWristYawLink" reason="Never" />
-    <disable_collisions link1="LElbowYawLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="r_wrist" reason="Always" />
-    <disable_collisions link1="LElbowYawLink" link2="torso" reason="Always" />
+    <disable_collisions link1="LElbowYawLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="LElbowYawLink" link2="torso" reason="Never" />
     <disable_collisions link1="LHipPitchLink" link2="LKneePitchLink" reason="Adjacent" />
-    <disable_collisions link1="LHipPitchLink" link2="LShoulderYawLink" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="LWristRollLink" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="NeckPitchLink" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="RHipPitchLink" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="RKneePitchLink" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="RShoulderYawLink" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="RWristRollLink" reason="Default" />
+    <disable_collisions link1="LHipPitchLink" link2="LShoulderYawLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="LWristRollLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="LWristYawLink" reason="Default" />
+    <disable_collisions link1="LHipPitchLink" link2="NeckPitchLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RWristRollLink" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="RWristYawLink" reason="Default" />
     <disable_collisions link1="LHipPitchLink" link2="body" reason="Adjacent" />
-    <disable_collisions link1="LHipPitchLink" link2="l_ankle" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="l_wrist" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="LHipPitchLink" link2="r_wrist" reason="Default" />
-    <disable_collisions link1="LHipPitchLink" link2="torso" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="LShoulderYawLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="LWristRollLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="LWristYawLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="NeckPitchLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="RHipPitchLink" reason="Default" />
-    <disable_collisions link1="LKneePitchLink" link2="RKneePitchLink" reason="Default" />
-    <disable_collisions link1="LKneePitchLink" link2="RShoulderYawLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="RWristRollLink" reason="Default" />
-    <disable_collisions link1="LKneePitchLink" link2="RWristYawLink" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="body" reason="Default" />
+    <disable_collisions link1="LHipPitchLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="LHipPitchLink" link2="torso" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="LShoulderYawLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="LWristRollLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="LWristYawLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="NeckPitchLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RWristRollLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="RWristYawLink" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="body" reason="Never" />
     <disable_collisions link1="LKneePitchLink" link2="l_ankle" reason="Adjacent" />
-    <disable_collisions link1="LKneePitchLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="l_wrist" reason="Default" />
-    <disable_collisions link1="LKneePitchLink" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="LKneePitchLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="LKneePitchLink" link2="r_wrist" reason="Default" />
+    <disable_collisions link1="LKneePitchLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="LKneePitchLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="LShoulderYawLink" link2="LWristRollLink" reason="Never" />
     <disable_collisions link1="LShoulderYawLink" link2="LWristYawLink" reason="Never" />
-    <disable_collisions link1="LShoulderYawLink" link2="NeckPitchLink" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="RKneePitchLink" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="RShoulderYawLink" reason="Always" />
+    <disable_collisions link1="LShoulderYawLink" link2="NeckPitchLink" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="RShoulderYawLink" reason="Never" />
     <disable_collisions link1="LShoulderYawLink" link2="RWristYawLink" reason="Never" />
-    <disable_collisions link1="LShoulderYawLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="LShoulderYawLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="LShoulderYawLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="LShoulderYawLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="LShoulderYawLink" link2="torso" reason="Adjacent" />
     <disable_collisions link1="LWristRollLink" link2="LWristYawLink" reason="Adjacent" />
-    <disable_collisions link1="LWristRollLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="LWristRollLink" link2="RKneePitchLink" reason="Always" />
-    <disable_collisions link1="LWristRollLink" link2="RWristRollLink" reason="Always" />
-    <disable_collisions link1="LWristRollLink" link2="RWristYawLink" reason="Default" />
+    <disable_collisions link1="LWristRollLink" link2="RElbowYawLink" reason="Default" />
+    <disable_collisions link1="LWristRollLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="LWristRollLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="LWristRollLink" link2="RWristRollLink" reason="Never" />
+    <disable_collisions link1="LWristRollLink" link2="RWristYawLink" reason="Never" />
     <disable_collisions link1="LWristRollLink" link2="body" reason="Never" />
-    <disable_collisions link1="LWristRollLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="LWristRollLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="LWristRollLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="LWristRollLink" link2="l_ankle" reason="Default" />
+    <disable_collisions link1="LWristRollLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="LWristRollLink" link2="r_ankle" reason="Default" />
+    <disable_collisions link1="LWristRollLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="LWristRollLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="LWristRollLink" link2="torso" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="NeckPitchLink" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="RElbowYawLink" reason="Never" />
-    <disable_collisions link1="LWristYawLink" link2="RKneePitchLink" reason="Always" />
+    <disable_collisions link1="LWristYawLink" link2="RKneePitchLink" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="RShoulderYawLink" reason="Never" />
-    <disable_collisions link1="LWristYawLink" link2="RWristRollLink" reason="Always" />
-    <disable_collisions link1="LWristYawLink" link2="RWristYawLink" reason="Default" />
+    <disable_collisions link1="LWristYawLink" link2="RWristRollLink" reason="Never" />
+    <disable_collisions link1="LWristYawLink" link2="RWristYawLink" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="body" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="LWristYawLink" link2="l_toe" reason="Default" />
     <disable_collisions link1="LWristYawLink" link2="l_wrist" reason="Adjacent" />
     <disable_collisions link1="LWristYawLink" link2="r_ankle" reason="Never" />
-    <disable_collisions link1="LWristYawLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="LWristYawLink" link2="r_toe" reason="Default" />
+    <disable_collisions link1="LWristYawLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="LWristYawLink" link2="torso" reason="Never" />
-    <disable_collisions link1="NeckPitchLink" link2="RElbowYawLink" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="RKneePitchLink" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="RShoulderYawLink" reason="Always" />
+    <disable_collisions link1="NeckPitchLink" link2="RElbowYawLink" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="RKneePitchLink" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="RShoulderYawLink" reason="Never" />
     <disable_collisions link1="NeckPitchLink" link2="RWristYawLink" reason="Never" />
     <disable_collisions link1="NeckPitchLink" link2="body" reason="Never" />
-    <disable_collisions link1="NeckPitchLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="NeckPitchLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="NeckPitchLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="NeckPitchLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="NeckPitchLink" link2="torso" reason="Adjacent" />
-    <disable_collisions link1="RElbowYawLink" link2="RHipPitchLink" reason="Always" />
-    <disable_collisions link1="RElbowYawLink" link2="RKneePitchLink" reason="Always" />
+    <disable_collisions link1="RElbowYawLink" link2="RHipPitchLink" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="RKneePitchLink" reason="Never" />
     <disable_collisions link1="RElbowYawLink" link2="RShoulderYawLink" reason="Adjacent" />
     <disable_collisions link1="RElbowYawLink" link2="RWristRollLink" reason="Adjacent" />
     <disable_collisions link1="RElbowYawLink" link2="RWristYawLink" reason="Never" />
-    <disable_collisions link1="RElbowYawLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="RElbowYawLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="RElbowYawLink" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="RElbowYawLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="RElbowYawLink" link2="r_toe" reason="Default" />
-    <disable_collisions link1="RElbowYawLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="RElbowYawLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="RElbowYawLink" link2="torso" reason="Default" />
     <disable_collisions link1="RHipPitchLink" link2="RKneePitchLink" reason="Adjacent" />
-    <disable_collisions link1="RHipPitchLink" link2="RShoulderYawLink" reason="Always" />
-    <disable_collisions link1="RHipPitchLink" link2="RWristRollLink" reason="Default" />
+    <disable_collisions link1="RHipPitchLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="RWristRollLink" reason="Never" />
     <disable_collisions link1="RHipPitchLink" link2="body" reason="Adjacent" />
-    <disable_collisions link1="RHipPitchLink" link2="l_ankle" reason="Default" />
-    <disable_collisions link1="RHipPitchLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="RHipPitchLink" link2="l_wrist" reason="Default" />
-    <disable_collisions link1="RHipPitchLink" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="RHipPitchLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="RHipPitchLink" link2="r_wrist" reason="Default" />
-    <disable_collisions link1="RHipPitchLink" link2="torso" reason="Always" />
-    <disable_collisions link1="RKneePitchLink" link2="RShoulderYawLink" reason="Always" />
-    <disable_collisions link1="RKneePitchLink" link2="RWristRollLink" reason="Default" />
-    <disable_collisions link1="RKneePitchLink" link2="RWristYawLink" reason="Always" />
-    <disable_collisions link1="RKneePitchLink" link2="body" reason="Default" />
-    <disable_collisions link1="RKneePitchLink" link2="l_ankle" reason="Default" />
-    <disable_collisions link1="RKneePitchLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="RKneePitchLink" link2="l_wrist" reason="Default" />
+    <disable_collisions link1="RHipPitchLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="RHipPitchLink" link2="torso" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="RShoulderYawLink" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="RWristRollLink" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="RWristYawLink" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="body" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="l_wrist" reason="Never" />
     <disable_collisions link1="RKneePitchLink" link2="r_ankle" reason="Adjacent" />
-    <disable_collisions link1="RKneePitchLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="RKneePitchLink" link2="r_wrist" reason="Default" />
+    <disable_collisions link1="RKneePitchLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="RKneePitchLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="RShoulderYawLink" link2="RWristRollLink" reason="Never" />
     <disable_collisions link1="RShoulderYawLink" link2="RWristYawLink" reason="Never" />
-    <disable_collisions link1="RShoulderYawLink" link2="l_ankle" reason="Always" />
-    <disable_collisions link1="RShoulderYawLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="RShoulderYawLink" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="RShoulderYawLink" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="RShoulderYawLink" link2="r_toe" reason="Always" />
-    <disable_collisions link1="RShoulderYawLink" link2="r_wrist" reason="Always" />
+    <disable_collisions link1="RShoulderYawLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="RShoulderYawLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="RShoulderYawLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="RShoulderYawLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="RShoulderYawLink" link2="r_toe" reason="Never" />
+    <disable_collisions link1="RShoulderYawLink" link2="r_wrist" reason="Never" />
     <disable_collisions link1="RShoulderYawLink" link2="torso" reason="Adjacent" />
     <disable_collisions link1="RWristRollLink" link2="RWristYawLink" reason="Adjacent" />
     <disable_collisions link1="RWristRollLink" link2="body" reason="Never" />
-    <disable_collisions link1="RWristRollLink" link2="l_ankle" reason="Default" />
-    <disable_collisions link1="RWristRollLink" link2="l_toe" reason="Always" />
-    <disable_collisions link1="RWristRollLink" link2="l_wrist" reason="Default" />
-    <disable_collisions link1="RWristRollLink" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="RWristRollLink" link2="r_toe" reason="Always" />
+    <disable_collisions link1="RWristRollLink" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="RWristRollLink" link2="l_toe" reason="Never" />
+    <disable_collisions link1="RWristRollLink" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="RWristRollLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="RWristRollLink" link2="r_toe" reason="Never" />
     <disable_collisions link1="RWristRollLink" link2="torso" reason="Never" />
     <disable_collisions link1="RWristYawLink" link2="body" reason="Never" />
     <disable_collisions link1="RWristYawLink" link2="l_ankle" reason="Never" />
-    <disable_collisions link1="RWristYawLink" link2="l_wrist" reason="Always" />
+    <disable_collisions link1="RWristYawLink" link2="l_toe" reason="Default" />
+    <disable_collisions link1="RWristYawLink" link2="l_wrist" reason="Never" />
     <disable_collisions link1="RWristYawLink" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="RWristYawLink" link2="r_toe" reason="Default" />
     <disable_collisions link1="RWristYawLink" link2="r_wrist" reason="Adjacent" />
     <disable_collisions link1="RWristYawLink" link2="torso" reason="Never" />
-    <disable_collisions link1="body" link2="l_ankle" reason="Default" />
-    <disable_collisions link1="body" link2="r_ankle" reason="Default" />
+    <disable_collisions link1="body" link2="l_ankle" reason="Never" />
+    <disable_collisions link1="body" link2="r_ankle" reason="Never" />
     <disable_collisions link1="body" link2="torso" reason="Adjacent" />
     <disable_collisions link1="l_ankle" link2="l_toe" reason="Adjacent" />
-    <disable_collisions link1="l_ankle" link2="l_wrist" reason="Default" />
-    <disable_collisions link1="l_ankle" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="l_ankle" link2="r_toe" reason="Always" />
-    <disable_collisions link1="l_ankle" link2="r_wrist" reason="Default" />
-    <disable_collisions link1="l_ankle" link2="torso" reason="Default" />
-    <disable_collisions link1="l_toe" link2="l_wrist" reason="Always" />
-    <disable_collisions link1="l_toe" link2="r_ankle" reason="Always" />
-    <disable_collisions link1="l_toe" link2="r_toe" reason="Default" />
-    <disable_collisions link1="l_wrist" link2="r_ankle" reason="Default" />
-    <disable_collisions link1="l_wrist" link2="r_wrist" reason="Default" />
-    <disable_collisions link1="l_wrist" link2="torso" reason="Default" />
+    <disable_collisions link1="l_ankle" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="l_ankle" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="l_ankle" link2="r_toe" reason="Never" />
+    <disable_collisions link1="l_ankle" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="l_ankle" link2="torso" reason="Never" />
+    <disable_collisions link1="l_toe" link2="l_wrist" reason="Never" />
+    <disable_collisions link1="l_toe" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="l_toe" link2="r_toe" reason="Never" />
+    <disable_collisions link1="l_toe" link2="r_wrist" reason="Default" />
+    <disable_collisions link1="l_wrist" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="l_wrist" link2="r_toe" reason="Default" />
+    <disable_collisions link1="l_wrist" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="l_wrist" link2="torso" reason="Never" />
     <disable_collisions link1="r_ankle" link2="r_toe" reason="Adjacent" />
-    <disable_collisions link1="r_ankle" link2="r_wrist" reason="Default" />
-    <disable_collisions link1="r_ankle" link2="torso" reason="Default" />
-    <disable_collisions link1="r_wrist" link2="torso" reason="Default" />
+    <disable_collisions link1="r_ankle" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="r_ankle" link2="torso" reason="Never" />
+    <disable_collisions link1="r_toe" link2="r_wrist" reason="Default" />
+    <disable_collisions link1="r_wrist" link2="torso" reason="Never" />
 </robot>
